@@ -42,7 +42,7 @@ spec:
           ui:field: RepoUrlPicker
           ui:options:
             allowedHosts:
-              - github.com
+              - gitlab.ea.com
   steps:
     - id: template
       name: Fetch Skeleton + Template
@@ -59,11 +59,12 @@ spec:
 
     - id: publish
       name: Publish
-      action: publish:github
+      action: publish:gitlab
       input:
-        allowedHosts: ['github.com']
+        allowedHosts: ['gitlab.ea.com']
         description: 'This is {{ parameters.component_id }}'
         repoUrl: '{{ parameters.repoUrl }}'
+        defaultBranch: 'main'
 
     - id: register
       name: Register
